@@ -17,6 +17,11 @@ children: [
   Container(
     margin: EdgeInsets.all(10),
     child: Row(
+      children: [
+        Image.asset('image/1'),
+        Text('wiliam jon malik'),
+        Text('aggrisive invistor')
+      ],
     ),
   )
 ],
