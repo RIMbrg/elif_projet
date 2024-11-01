@@ -89,7 +89,7 @@ class _LoginPageState extends State<LoginPage> {
                             elevation: 0,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(50)),
-                            child: Text(
+                            child: const Text(
                               "Login",
                               style: TextStyle(
                                 fontWeight: FontWeight.w600,
@@ -100,6 +100,17 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ),
                       ),
+                      const Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text("Don't have an account?"),
+                          Text(
+                            "Sign up",
+                            style: TextStyle(
+                                fontWeight: FontWeight.w600, fontSize: 18),
+                          )
+                        ],
+                      ),Container(padding: EdgeInsets.only(top:100),height: 200,decoration: BoxDecoration(image: DecorationImage(image: AssetImage("assets/background.png"),fit: BoxFit.fitHeight)), child: ,)
                     ]),
               )
             ],
