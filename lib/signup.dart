@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:projet_testt/input_file.dart';
+import 'package:projet_testt/insert_button.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
@@ -12,184 +14,94 @@ class _SignUpPageState extends State<SignUpPage> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: Center(
-          child: Column(children: [
-            Container(
-                padding: EdgeInsets.all(10),
-                child: const Text(
-                  'Sign up',
-                  style: TextStyle(fontWeight: FontWeight.w900, fontSize: 30),
-                )),
-            const Text('Create your account',
-                style: TextStyle(color: Colors.grey)),
-            TextField(
-              decoration: InputDecoration(labelText: 'User name'),
-            ),
-            const Text('Password')
-          ]),
+        resizeToAvoidBottomInset: true,
+        backgroundColor: Colors.white,
+        appBar: AppBar(
+          elevation: 0,
+          backgroundColor: Colors.white,
+          leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Icon(Icons.arrow_back),
+            iconSize: 20,
+            color: Colors.black,
+          ),
         ),
+
+        body: SingleChildScrollView(
+          child: Container(
+            padding: EdgeInsets.symmetric(horizontal: 40),
+            height: MediaQuery.of(context).size.height - 50,
+            width: double.infinity,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                const Column(
+                  children: [
+                    Text(
+                      "Sign up",
+                      style: TextStyle(
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Text(
+                      'Create an account',
+                      style: TextStyle(
+                        fontSize: 15,
+                        color: Color.fromARGB(255, 133, 134, 134),
+                      ),
+                    ),
+                  ],
+                ),
+                Column(
+                  children: [
+                    inputFile(label: "Username"),
+                    inputFile(label: "Email"),
+                    inputFile(label: "Password", obscureText: true),
+                    inputFile(label: "Confirm password", obscureText: true),
+                  ],
+                ),
+                insertButton(label: "Sign up"),
+                const Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text("Already have an account?"),
+                    Text(
+                      " Login",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 18,
+                      ),
+                    )
+                  ],
+                )
+              ],
+            ),
+          ),
+        ),
+
+        // body: Center(
+        //   child: Column(children: [
+        //     Container(
+        //         padding: EdgeInsets.all(10),
+        //         child: const Text(
+        //           'Sign up',
+        //           style: TextStyle(fontWeight: FontWeight.w900, fontSize: 30),
+        //         )),
+        //     const Text('Create your account',
+        //         style: TextStyle(color: Colors.grey)),
+        //     TextField(
+        //       decoration: InputDecoration(labelText: 'User name'),
+        //     ),
+        //     const Text('Password')
+        //   ]),
+        // ),
       ),
     );
-
-    // return MaterialApp(
-    //   debugShowCheckedModeBanner: false,
-    //   home: Scaffold(
-    //     body: SingleChildScrollView(
-    //       child: Container(
-    //         padding: const EdgeInsets.symmetric(horizontal: 40),
-    //         height: MediaQuery.of(context).size.height - 50,
-    //         width: double.infinity,
-    //         child: Column(
-    //           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-    //           crossAxisAlignment: CrossAxisAlignment.stretch,
-    //           children: <Widget>[
-    //             Column(
-    //               children: <Widget>[
-    //                 const SizedBox(height: 60.0),
-    //                 const Text(
-    //                   "Sign up",
-    //                   style: TextStyle(
-    //                     fontSize: 30,
-    //                     fontWeight: FontWeight.bold,
-    //                   ),
-    //                 ),
-    //                 const SizedBox(
-    //                   height: 20,
-    //                 ),
-    //                 Text(
-    //                   "Create your account",
-    //                   style: TextStyle(fontSize: 15, color: Colors.grey[700]),
-    //                 )
-    //               ],
-    //             ),
-    //             Column(
-    //               children: <Widget>[
-    //                 TextField(
-    //                   decoration: InputDecoration(
-    //                       hintText: "Username",
-    //                       border: OutlineInputBorder(
-    //                           borderRadius: BorderRadius.circular(18),
-    //                           borderSide: BorderSide.none),
-    //                       fillColor: Colors.purple.withOpacity(0.1),
-    //                       filled: true,
-    //                       prefixIcon: const Icon(Icons.person)),
-    //                 ),
-    //                 const SizedBox(height: 20),
-    //                 TextField(
-    //                   decoration: InputDecoration(
-    //                       hintText: "Email",
-    //                       border: OutlineInputBorder(
-    //                           borderRadius: BorderRadius.circular(18),
-    //                           borderSide: BorderSide.none),
-    //                       fillColor: Colors.purple.withOpacity(0.1),
-    //                       filled: true,
-    //                       prefixIcon: const Icon(Icons.email)),
-    //                 ),
-    //                 const SizedBox(height: 20),
-    //                 TextField(
-    //                   decoration: InputDecoration(
-    //                     hintText: "Password",
-    //                     border: OutlineInputBorder(
-    //                         borderRadius: BorderRadius.circular(18),
-    //                         borderSide: BorderSide.none),
-    //                     fillColor: Colors.purple.withOpacity(0.1),
-    //                     filled: true,
-    //                     prefixIcon: const Icon(Icons.password),
-    //                   ),
-    //                   obscureText: true,
-    //                 ),
-    //                 const SizedBox(height: 20),
-    //                 TextField(
-    //                   decoration: InputDecoration(
-    //                     hintText: "Confirm Password",
-    //                     border: OutlineInputBorder(
-    //                         borderRadius: BorderRadius.circular(18),
-    //                         borderSide: BorderSide.none),
-    //                     fillColor: Colors.purple.withOpacity(0.1),
-    //                     filled: true,
-    //                     prefixIcon: const Icon(Icons.password),
-    //                   ),
-    //                   obscureText: true,
-    //                 ),
-    //               ],
-    //             ),
-    //             Container(
-    //                 padding: const EdgeInsets.only(top: 3, left: 3),
-    //                 child: ElevatedButton(
-    //                   onPressed: () {},
-    //                   child: const Text(
-    //                     "Sign up",
-    //                     style: TextStyle(fontSize: 20),
-    //                   ),
-    //                   style: ElevatedButton.styleFrom(
-    //                     shape: const StadiumBorder(),
-    //                     padding: const EdgeInsets.symmetric(vertical: 16),
-    //                     backgroundColor: Colors.purple,
-    //                   ),
-    //                 )),
-    //             const Center(child: Text("Or")),
-    //             Container(
-    //               height: 45,
-    //               decoration: BoxDecoration(
-    //                 borderRadius: BorderRadius.circular(25),
-    //                 border: Border.all(
-    //                   color: Colors.purple,
-    //                 ),
-    //                 boxShadow: [
-    //                   BoxShadow(
-    //                     color: Colors.white.withOpacity(0.5),
-    //                     spreadRadius: 1,
-    //                     blurRadius: 1,
-    //                     offset:
-    //                         const Offset(0, 1), // changes position of shadow
-    //                   ),
-    //                 ],
-    //               ),
-    //               child: TextButton(
-    //                 onPressed: () {},
-    //                 child: Row(
-    //                   mainAxisAlignment: MainAxisAlignment.center,
-    //                   children: [
-    //                     Container(
-    //                       height: 30.0,
-    //                       width: 30.0,
-    //                       decoration: const BoxDecoration(
-    //                         image: DecorationImage(
-    //                             image: AssetImage(
-    //                                 'assets/images/login_signup/google.png'),
-    //                             fit: BoxFit.cover),
-    //                         shape: BoxShape.circle,
-    //                       ),
-    //                     ),
-    //                     const SizedBox(width: 18),
-    //                     const Text(
-    //                       "Sign In with Google",
-    //                       style: TextStyle(
-    //                         fontSize: 16,
-    //                         color: Colors.purple,
-    //                       ),
-    //                     ),
-    //                   ],
-    //                 ),
-    //               ),
-    //             ),
-    //             Row(
-    //               mainAxisAlignment: MainAxisAlignment.center,
-    //               children: <Widget>[
-    //                 const Text("Already have an account?"),
-    //                 TextButton(
-    //                     onPressed: () {},
-    //                     child: const Text(
-    //                       "Login",
-    //                       style: TextStyle(color: Colors.purple),
-    //                     ))
-    //               ],
-    //             )
-    //           ],
-    //         ),
-    //       ),
-    //     ),
-    //   ),
-    // );
   }
 }

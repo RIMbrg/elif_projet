@@ -1,7 +1,8 @@
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
+// import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'input_file.dart';
+import 'insert_button.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -12,22 +13,22 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   @override
-  void initState() {
-    FirebaseAuth.instance.authStateChanges().listen((User? user) {
-      if (user == null) {
-        print('User is currently signed out!');
-      } else {
-        print('User is signed in!');
-        Navigator.of(context).pushNamed('home');
-      }
-    });
-    super.initState();
-  }
+  // void initState() {
+  //   FirebaseAuth.instance.authStateChanges().listen((User? user) {
+  //     if (user == null) {
+  //       print('User is currently signed out!');
+  //     } else {
+  //       print('User is signed in!');
+  //       Navigator.of(context).pushNamed('home');
+  //     }
+  //   });
+  //   super.initState();
+  // }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        resizeToAvoidBottomInset: false,
+        resizeToAvoidBottomInset: true,
         backgroundColor: Colors.white,
         appBar: AppBar(
           elevation: 0,
@@ -69,48 +70,35 @@ class _LoginPageState extends State<LoginPage> {
                         )
                       ]),
                       Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 40),
-                        child: Container(
-                          padding: const EdgeInsets.only(top: 30, left: 3),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(50),
-                            border: const Border(
-                              bottom: BorderSide(color: Colors.black),
-                              left: BorderSide(color: Colors.black),
-                              top: BorderSide(color: Colors.black),
-                              right: BorderSide(color: Colors.black),
-                            ),
-                          ),
-                          child: MaterialButton(
-                            minWidth: double.infinity,
-                            height: 60,
-                            onPressed: () {},
-                            color: Color(0xff0239ba),
-                            elevation: 0,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(50)),
-                            child: const Text(
-                              "Login",
-                              style: TextStyle(
-                                fontWeight: FontWeight.w600,
-                                fontSize: 18,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
+                        padding: EdgeInsets.symmetric(horizontal: 40),
+                        child: Column(
+                          children: [
+                            inputFile(label: "Email"),
+                            inputFile(label: "Password", obscureText: true),
+                          ],
                         ),
                       ),
+                      insertButton(label: 'Login'),
                       const Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text("Don't have an account?"),
+                          Text("Don't have an account? "),
                           Text(
-                            "Sign up",
+                            "_ Sign up",
                             style: TextStyle(
                                 fontWeight: FontWeight.w600, fontSize: 18),
                           )
                         ],
-                      ),Container(padding: EdgeInsets.only(top:100),height: 200,decoration: BoxDecoration(image: DecorationImage(image: AssetImage("assets/background.png"),fit: BoxFit.fitHeight)), child: ,)
+                      ),
+                      Container(
+                        padding: const EdgeInsets.only(top: 100),
+                        height: 200,
+                        decoration: const BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage("assets/background.png"),
+                              fit: BoxFit.fitHeight),
+                        ),
+                      )
                     ]),
               )
             ],

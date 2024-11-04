@@ -2,10 +2,20 @@
 
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:projet_testt/login.dart';
+import 'package:projet_testt/profile.dart';
+import 'home.dart';
+import 'signup.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(options:const FirebaseOptions(apiKey: "AIzaSyCEZ_Wy2-4eVUibGo2v8EmAnnkehlNiUYo", appId:"1:810142575890:android:43a2469b27964f3a0a57cb", messagingSenderId: "messagingSenderId", projectId:"projet-testt-b7862"));
-    runApp(const MyApp());
+  await Firebase.initializeApp(
+      options: const FirebaseOptions(
+          apiKey: "AIzaSyCEZ_Wy2-4eVUibGo2v8EmAnnkehlNiUYo",
+          appId: "1:810142575890:android:43a2469b27964f3a0a57cb",
+          messagingSenderId: "messagingSenderId",
+          projectId: "projet-testt-b7862"));
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -19,7 +29,8 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const ProfilePage(),
+      // home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
