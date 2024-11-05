@@ -4,8 +4,9 @@ const String tEditProfile ="Edit Profile";
 const String tLogoutDialogHeading = "Logout";
 const String tProfileHeading = "Coding with T";
 const String tProfielSubHeading = "aa@gmail.com";
+
 //Menu 
-const String tMenu5 = tLogout;
+const String tMenu5 = 'tLogout';
 const String tMenu1 = "Settings";
 const String tMenu4 = "Information";
 const String tMenu2 = "Billing Details";
