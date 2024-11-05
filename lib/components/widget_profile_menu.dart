@@ -1,7 +1,7 @@
 import 'dart:js';
 
 import 'package:flutter/material.dart';
-import 'package:projet_testt/constants2.dart';
+import 'package:projet_testt/components/constants2.dart';
 
 class ProfileMenuWidget extends StatelessWidget {
   const ProfileMenuWidget({
