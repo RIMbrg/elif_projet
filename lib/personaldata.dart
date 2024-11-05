@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:projet_testt/constants2.dart';
-import 'package:projet_testt/insert_button.dart';
+import 'package:projet_testt/components/constants2.dart';
+import 'package:projet_testt/components/widget_insert_button.dart';
+// import 'package:projet_testt/constants2.dart';
+// import 'package:projet_testt/insert_button.dart';
 
 class EditProfilPage extends StatefulWidget {
   @override
